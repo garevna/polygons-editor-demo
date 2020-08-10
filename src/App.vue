@@ -1,7 +1,19 @@
 <template>
   <div id="app">
-    <main id="dgtek-polygons">
-      <Polygons />
+    <main>
+      <div class="nav">
+        <button @click="switchToPolygons">POLYGONS</button>
+        <button @click="switchToMarkers">MARKERS</button>
+      </div>
+      <!-- <component :is="componentName" :saveData="`${save}`"></component> -->
+      <!-- <Polygons
+            :saveData.sync="savePolygons"
+      /> -->
+      <!-- <Markers
+            :saveData.sync="saveMarkers"
+            v-if="showMarkers"
+      /> -->
+      <router-view :key="$route.name" />
     </main>
   </div>
 </template>
@@ -19,35 +31,50 @@
   width: 50%;
   height: 700px;
 }
+.nav {
+  margin-bottom: 48px;
+}
+button {
+  padding: 8px 16px;
+  outline: none;
+}
 </style>
 
 <script>
 
-import 'dgtek-polygons'
-import 'dgtek-polygons/dist/dgtek-polygons.css'
-
 export default {
   name: 'App',
   data: () => ({
-    saveData: false
+    //
   }),
 
   watch: {
-    saveData (val) {
-      if (val) this.save()
+    $route (to) {
+      console.log(to)
+      // if (to.meta.reload) { window.location.reload() }
     }
   },
 
   methods: {
-    async save () {
-      const polygons = {
-        features: [],
-        type: 'FeatureCollection'
-      }
-      polygons.features = ['ServiceAvailable', 'BuildCommenced', 'ComingSoon']
-        .flatMap(collectionType => localStorage.getFeaturesByType(collectionType))
-      console.log(polygons)
-      this.saveData = false
+    removeGoogleMaps () {
+      location.reload()
+    },
+    switchToPolygons () {
+      // this.$router.push({ name: 'polygons' })
+      this.$router.replace(
+        { name: 'polygons' },
+        () => {
+          this.$router.go(0)
+        }
+      )
+    },
+    switchToMarkers () {
+      this.$router.replace(
+        { name: 'markers' },
+        () => {
+          this.$router.go(0)
+        }
+      )
     }
   }
 }

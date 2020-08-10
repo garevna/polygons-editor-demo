@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "dgtek-polygons": "^1.0.4",
-    "vue": "^2.6.11"
+    "dgtek-markers": "^1.0.2",
+    "dgtek-polygons": "^1.0.7",
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
