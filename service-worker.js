@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dgtek-polygons-editor-demo/precache-manifest.b992c00d952efc98869b1417903b2b90.js"
+  "/dgtek-polygons-editor-demo/precache-manifest.b2bba4fd2a4c5d9860ed1290f074b37a.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "test-polygons"});

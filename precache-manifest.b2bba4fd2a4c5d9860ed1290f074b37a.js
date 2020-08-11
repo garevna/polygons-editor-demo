@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e5c01b42616e9d5052d",
+    "revision": "b16cae0d2e5add3d31d1",
     "url": "/dgtek-polygons-editor-demo/css/app.7dedc980.css"
   },
   {
-    "revision": "ca1576efefef73bf788e",
+    "revision": "12a0294da38cac4a3a9f",
     "url": "/dgtek-polygons-editor-demo/css/chunk-vendors.fe81def7.css"
   },
   {
-    "revision": "97a6ea7ad7ff08ad7f3c09ec910d4b19",
+    "revision": "c8631e92206af418c6728c65d115a59e",
     "url": "/dgtek-polygons-editor-demo/index.html"
   },
   {
-    "revision": "0e5c01b42616e9d5052d",
-    "url": "/dgtek-polygons-editor-demo/js/app.3b0c6392.js"
+    "revision": "b16cae0d2e5add3d31d1",
+    "url": "/dgtek-polygons-editor-demo/js/app.e3392237.js"
   },
   {
-    "revision": "ca1576efefef73bf788e",
-    "url": "/dgtek-polygons-editor-demo/js/chunk-vendors.83a47971.js"
+    "revision": "12a0294da38cac4a3a9f",
+    "url": "/dgtek-polygons-editor-demo/js/chunk-vendors.8e1b463e.js"
   },
   {
     "revision": "e570e65f6cae129ab7a2377ad29e1377",
