@@ -5,15 +5,14 @@
         <button @click="switchToPolygons">POLYGONS</button>
         <button @click="switchToMarkers">MARKERS</button>
       </div>
+      <div v-if="showPolygons">
+        <PolygonsView />
+      </div>
+      <div v-if="showMarkers">
+        <MarkersView />
+      </div>
       <!-- <component :is="componentName" :saveData="`${save}`"></component> -->
-      <!-- <Polygons
-            :saveData.sync="savePolygons"
-      /> -->
-      <!-- <Markers
-            :saveData.sync="saveMarkers"
-            v-if="showMarkers"
-      /> -->
-      <router-view :key="$route.name" />
+      <!-- <router-view :key="$route.name" /> -->
     </main>
   </div>
 </template>
@@ -42,40 +41,47 @@ button {
 
 <script>
 
+import PolygonsView from '@/views/Polygons.vue'
+import MarkersView from '@/views/Markers.vue'
+
 export default {
   name: 'App',
+  components: {
+    PolygonsView,
+    MarkersView
+  },
   data: () => ({
-    //
+    component: null
   }),
-
-  watch: {
-    $route (to) {
-      console.log(to)
-      // if (to.meta.reload) { window.location.reload() }
+  computed: {
+    showPolygons () {
+      return this.component === 'polygons'
+    },
+    showMarkers () {
+      return this.component === 'markers'
     }
   },
 
   methods: {
-    removeGoogleMaps () {
-      location.reload()
-    },
     switchToPolygons () {
-      // this.$router.push({ name: 'polygons' })
-      this.$router.replace(
-        { name: 'polygons' },
-        () => {
-          this.$router.go(0)
-        }
-      )
+      if (this.component !== 'polygons') {
+        localStorage.setItem('component', 'polygons')
+        location.reload()
+      }
     },
     switchToMarkers () {
-      this.$router.replace(
-        { name: 'markers' },
-        () => {
-          this.$router.go(0)
-        }
-      )
+      if (this.component !== 'markers') {
+        localStorage.setItem('component', 'markers')
+        location.reload()
+      }
     }
+  },
+  mounted () {
+    this.component = localStorage.getItem('component')
+    // if (component) {
+    //   this.component = component
+    //   localStorage.removeItem('component')
+    // }
   }
 }
 </script>

@@ -33,9 +33,6 @@ export default {
   },
 
   methods: {
-    removeGoogleMaps () {
-      location.reload()
-    },
     async saveMarkersData () {
       const markers = localStorage.getAllMarkers()
       console.log(markers)
@@ -45,7 +42,7 @@ export default {
   },
 
   mounted () {
-    // this.$router.go()
+    console.log('Markers mounted')
   }
 }
 

@@ -43,8 +43,8 @@ export default {
     }
   },
 
-  beforeMount () {
-    // this.$router.go()
+  mounted () {
+    console.log('Polygons mounted')
   }
 }
 
